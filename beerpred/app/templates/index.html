@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Alcohol Consumption Predictor</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Alcohol Consumption Predictor</h1>
+        <p>Interactive Machine Learning Web App</p>
+    </header>
+
+
+    <section class="charts">
+
+        <h2>Dataset Insights</h2>
+
+        <div class="chart-grid">
+
+            <img src="/static/images/alcohol_distribution.png">
+            <img src="/static/images/correlation.png">
+            <img src="/static/images/continent.png">
+
+        </div>
+
+    </section>
+
+
+
+    <section class="predict-section">
+
+        <h2>Predict Alcohol Consumption</h2>
+
+        <div class="form-box">
+
+            <label>Country</label>
+            <select id="country">
+
+                {% for c in countries %}
+                <option value="{{c}}">{{c}}</option>
+                {% endfor %}
+
+            </select>
+
+
+            <label>Continent</label>
+            <select id="continent">
+
+                {% for c in continents %}
+                <option value="{{c}}">{{c}}</option>
+                {% endfor %}
+
+            </select>
+
+
+            <label>Beer Servings: <span id="beer_val">50</span></label>
+            <input type="range" min="0" max="400" value="50" id="beer">
+
+
+            <label>Spirit Servings: <span id="spirit_val">50</span></label>
+            <input type="range" min="0" max="400" value="50" id="spirit">
+
+
+            <label>Wine Servings: <span id="wine_val">50</span></label>
+            <input type="range" min="0" max="400" value="50" id="wine">
+
+
+            <button onclick="predictAlcohol()">Predict</button>
+
+        </div>
+
+        <div id="result-card" class="result-card hidden">
+
+            <h3>Predicted Alcohol Consumption</h3>
+
+            <p id="prediction-value"></p>
+
+        </div>
+
+    </section>
+
+    <script src="/static/js/script.js"></script>
+
+</body>
+
+</html>
